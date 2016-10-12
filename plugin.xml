@@ -20,12 +20,12 @@
 		<clobbers target="okgoogleplugin" />
 	</js-module>
 	<platform name="android">
-    
+
 		<source-file src="src/android/OkGooglePlugin.java" target-dir="src/com/plugin/okgoogle/" />
-        <source-file src="src/android/ServiceGoogleNowIntegration.java" target-dir="src/com/plugin/okgoogle/" />
+        <source-file src="src/android/GoogleNowIntegrationService.java" target-dir="src/com/plugin/okgoogle/" />
 
 		<config-file target="AndroidManifest.xml" parent="/manifest/application">
-			<service android:label="@string/accessibility_service_label" android:name="com.plugin.okgoogle.ServiceGoogleNowIntegration" android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE">
+			<service android:label="@string/accessibility_service_label" android:name="com.plugin.okgoogle.GoogleNowIntegrationService" android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE">
 				<intent-filter>
 					<action android:name="android.accessibilityservice.AccessibilityService" />
 				</intent-filter>

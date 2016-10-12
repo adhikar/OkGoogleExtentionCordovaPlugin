@@ -41,17 +41,15 @@
 			<accessibility-service android:description="@string/accessibility_service_description" android:accessibilityEventTypes="typeViewTextChanged|typeViewTextSelectionChanged|typeWindowContentChanged" android:packageNames="com.google.android.googlequicksearchbox" android:accessibilityFeedbackType="feedbackGeneric" android:notificationTimeout="0" android:accessibilityFlags="flagReportViewIds" android:canRetrieveWindowContent="true" xmlns:android="http://schemas.android.com/apk/res/android" />
 		</config-file>
 		<config-file target="res/values/strings.xml" parent="/*">
-			<resources>
-				<string name="app_name">
-					VoiceCommand
-				</string>
-				<string name="accessibility_service_description">
-					Intercept searches from Google Now and use them as VoiceCommand commands.
-				</string>
-				<string name="accessibility_service_label">
-					VoiceCommand Google Now Integration
-				</string>
-			</resources>
+			<string name="app_name">
+				VoiceCommand
+			</string>
+			<string name="accessibility_service_description">
+				Intercept searches from Google Now and use them as VoiceCommand commands.
+			</string>
+			<string name="accessibility_service_label">
+				VoiceCommand Google Now Integration
+			</string>
 		</config-file>
 	</platform>
 </plugin>

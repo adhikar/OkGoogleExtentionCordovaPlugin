@@ -19,9 +19,24 @@ public class OkGooglePlugin extends CordovaPlugin {
 
     @Override
     public boolean execute(String action, JSONArray args, CallbackContext callbackContext) throws JSONException {
+        if(action.equals('isServiceActive')){
+            IsServiceActive(callbackContext);
+        }
         return true;
     }
 
+    public void IsServiceActive(CallbackContext callbackContext){
+         try {
+             GoogleNowIntegrationService service = GoogleNowIntegrationService.getInstance();
+             if(service!=null){
+                callbackContext.success(true);
+             }else{
+                callbackContext.success(false);
+             }
+        } catch (Exception ex) {
+            callbackContext.error(ex.getMessage());
+        }
+    }
     @Override
     public void onDestroy() {
         super.onDestroy();

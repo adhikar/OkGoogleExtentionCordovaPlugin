@@ -58,5 +58,14 @@ var Promise = (function () {
 })();
 // js interface to plugin
 module.exports = {
-	
+	isServiceActive: function () {
+		var promise = new Promise();
+        cordova.exec(function(res){
+			promise.resolve(res);
+		}, function(ex){
+			promise.reject(ex);
+			console.error(ex);
+		}, "OkGoolePlugin", "isServiceActive", []);
+		return promise;
+    },
 };

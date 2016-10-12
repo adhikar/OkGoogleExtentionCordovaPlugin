@@ -17,7 +17,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Objects;
-
+import org.apache.cordova.CallbackContext;
 /**
  * Created by Gerjan on 11-10-2016.
  */
@@ -25,6 +25,8 @@ import java.util.Objects;
 public class GoogleNowIntegrationService extends AccessibilityService {
 
     private static GoogleNowIntegrationService _service;
+
+    private CallbackContext _context;
 
     public static GoogleNowIntegrationService getInstance() {
         return _service;
@@ -38,24 +40,22 @@ public class GoogleNowIntegrationService extends AccessibilityService {
             String className = source.getClassName().toString();
             if (className.equals("com.google.android.apps.gsa.searchplate.widget.StreamingTextView") && source.getText() != null) {
                 String command = source.getText().toString();
-                if(HasMatchingCommand(command)) {
-                    ExecuteCommand(command);
-                    CloseGoogleNowApp();
-                }
-                //continue with google
+                SendCallback(command);
             }
         }
     }
-    public void ExecuteCommand(String command){
-        if(command.toLowerCase().startsWith("light")){
-            //light living room off
-            Toast.makeText(this,"Command: "+ command, Toast.LENGTH_LONG).show();
-        }
-    }
-    public boolean HasMatchingCommand(String command){
-        return command.startsWith("light");
+
+    public void SetContext(CallbackContext context){
+        this._context = context;
     }
 
+    public void SendCallback(String command){
+       if (_context != null) {
+            PluginResult result = new PluginResult(PluginResult.Status.OK, command);
+            result.setKeepCallback(true);
+            _context.sendPluginResult(result);
+        }
+    }
 
     @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
     public void CloseGoogleNowApp(){
@@ -75,4 +75,5 @@ public class GoogleNowIntegrationService extends AccessibilityService {
     @Override
     public void onInterrupt() {
     }
+
 }

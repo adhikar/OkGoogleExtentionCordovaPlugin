@@ -22,6 +22,24 @@ public class OkGooglePlugin extends CordovaPlugin {
         if(action.equals("isServiceActive")){
             IsServiceActive(callbackContext);
         }
+        else if(action.equals("closeGoogleNowApp")){
+            GoogleNowIntegrationService service = GoogleNowIntegrationService.getInstance();
+             if(service!=null){
+                 service.CloseGoogleNowApp();
+             }
+        }
+        else if(action.equals("closeGoogleNowApp")){
+            GoogleNowIntegrationService service = GoogleNowIntegrationService.getInstance();
+             if(service!=null){
+                 service.CloseGoogleNowApp();
+             }
+        }
+        else if(action.equals("onCommand")){
+            GoogleNowIntegrationService service = GoogleNowIntegrationService.getInstance();
+             if(service!=null){
+                 service.SetContext(callbackContext);
+             }
+        }
         return true;
     }
 

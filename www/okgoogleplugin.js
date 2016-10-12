@@ -68,4 +68,24 @@ module.exports = {
 		}, "OkGooglePlugin", "isServiceActive", []);
 		return promise;
     },
+    closeGoogleNowApp: function () {
+		var promise = new Promise();
+        cordova.exec(function(res){
+			promise.resolve(res);
+		}, function(ex){
+			promise.reject(ex);
+			console.error(ex);
+		}, "OkGooglePlugin", "closeGoogleNowApp", []);
+		return promise;
+    },
+    onCommand: function () {
+		var promise = new Promise();
+        cordova.exec(function(res){
+			promise.resolve(res);
+		}, function(ex){
+			promise.reject(ex);
+			console.error(ex);
+		}, "OkGooglePlugin", "onCommand", []);
+		return promise;
+    }
 };

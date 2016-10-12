@@ -29,9 +29,9 @@ public class OkGooglePlugin extends CordovaPlugin {
          try {
              GoogleNowIntegrationService service = GoogleNowIntegrationService.getInstance();
              if(service!=null){
-                callbackContext.success(true);
+                callbackContext.success("true");
              }else{
-                callbackContext.success(false);
+                callbackContext.success("false");
              }
         } catch (Exception ex) {
             callbackContext.error(ex.getMessage());

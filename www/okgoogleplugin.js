@@ -65,7 +65,7 @@ module.exports = {
 		}, function(ex){
 			promise.reject(ex);
 			console.error(ex);
-		}, "OkGoolePlugin", "isServiceActive", []);
+		}, "OkGooglePlugin", "isServiceActive", []);
 		return promise;
     },
 };

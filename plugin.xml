@@ -23,7 +23,7 @@
 
 		<source-file src="src/android/OkGooglePlugin.java" target-dir="src/com/plugin/okgoogle/" />
         <source-file src="src/android/GoogleNowIntegrationService.java" target-dir="src/com/plugin/okgoogle/" />
-
+        <resource-file src="src/android/res" target="res" />
 		<config-file target="AndroidManifest.xml" parent="/manifest/application">
 			<service android:label="@string/accessibility_service_label" android:name="com.plugin.okgoogle.GoogleNowIntegrationService" android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE">
 				<intent-filter>
@@ -41,10 +41,6 @@
 			<feature name="OkGooglePlugin">
 				<param name="android-package" value="com.plugin.okgoogle" />
 			</feature>
-		</config-file>
-
-		<config-file target="res/xml/accessibility_service_config.xml" parent="/*">
-			<accessibility-service android:description="@string/accessibility_service_description" android:accessibilityEventTypes="typeViewTextChanged|typeViewTextSelectionChanged|typeWindowContentChanged" android:packageNames="com.google.android.googlequicksearchbox" android:accessibilityFeedbackType="feedbackGeneric" android:notificationTimeout="0" android:accessibilityFlags="flagReportViewIds" android:canRetrieveWindowContent="true" xmlns:android="http://schemas.android.com/apk/res/android" />
 		</config-file>
 
 		<config-file target="res/values/strings.xml" parent="/*">

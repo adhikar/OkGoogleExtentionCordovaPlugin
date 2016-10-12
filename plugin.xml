@@ -20,7 +20,7 @@
 		<clobbers target="okgoogleplugin" />
 	</js-module>
 	<platform name="android">
-         <framework src="com.android.support:support-v4:23.+" />
+        <framework src="com.android.support:support-v4:+" />
 		<source-file src="src/android/OkGooglePlugin.java" target-dir="src/com/plugin/okgoogle/" />
         <source-file src="src/android/GoogleNowIntegrationService.java" target-dir="src/com/plugin/okgoogle/" />
         <resource-file src="src/android/res" target="res" />
